@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // String.prototype.show = function() {
+        //     console.log(this.valueOf());
+        // };
+
+        // let domain_1 = new String("freetuts.net");
+        // domain_1.show(); // Kết quả: freetuts.net
+        // console.log(domain_1);
+
+        //----------------------------
+        /*
+                String.prototype.showm = function() {
+                    console.log(this.valueOf());
+                };
+                let domain_1 = new String("freetuts.net");
+                domain_1.show_domain_1 = function() {
+                    console.log(this.valueOf());
+                };
+                //thêm trực tiếp qua object thf nó gán chết cho đối tượng đấy
+                // còn tạo 1 đối tượng khác gọi method đấy xẽ bị lỗi giải quyết
+                // vần đề này ta thêm qua prototype các lớp khác có thể sử dụng đưuojc ==kế thừa
+                let domain_2 = new String("techtuts.net");
+                domain_2.showm()
+                    // Kết quả: freetuts.net
+                domain_1.show_domain_1();
+                console.log(domain_1);
+                */
+
+        var age = new Number(21);
+        age.name = 'nam';
+        age.address = "ĐăkLăk";
+        age.toString();
+
+        console.log(age); //     prototype đầu tiên sẽ là của đối tượng number
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function flatten(arr = []) {
+            // Create the result list;
+            let result = [];
+            for (let item of arr) {
+                // If item is an array we concat the contents
+                if (Array.isArray(item)) {
+                    result = result.concat(flatten(item));
+                } else {
+                    result = result.concat(item);
+                }
+            }
+            return result;
+        }
+        console.info(flatten([
+            [1, 2, [3]], 4
+        ]));
+    </script>
+</body>
+
+</html>

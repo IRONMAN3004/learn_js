@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //--Cách 1
+        // const arrToObj = arr => arr.reduce((objArr, item) => ({...objArr,
+        //     [item[0]]: item[1]
+        // }), {})
+        // --Cách 2
+
+        function arrToObj(arr) {
+            return arr.reduce(function(init, [key, value]) {
+                return {...init,
+                    [key]: value
+                };
+            }, {});
+        }
+
+        const obj1 = arrToObj([
+            ['name', 'Son Dang'],
+            ['age', 21],
+            ['address', 'Ha Noi']
+        ])
+        console.log(obj1)
+
+        //--Cách 3
+        // function arrToObj(arr) {
+        //    return Object.fromEntries(arr);
+        // }
+
+
+
+        // function arrToObj(arr){
+        //    return arr.reduce(function(index, info) {
+        //       index[info[0]] = info[1];
+        //       return index;
+        //    }, {})
+        // }
+
+        // Expected results:
+        // const obj1 = arrToObj([
+        //    ['name', 'Son Dang'], 
+        //    ['age', 21], 
+        //    ['address', 'Ha Noi']
+        // ])
+        // console.log(obj1)
+        // Output: { name: 'Son Dang', age: 21, address: 'Ha Noi' }
+    </script>
+</body>
+
+</html>

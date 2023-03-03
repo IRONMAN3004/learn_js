@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Human {
+            constructor(firstName, lastName) {
+                this.firstName = firstName
+                this.lastname = lastName
+            }
+
+            sayHello() {
+                // console.log(`Hi, I'm ${this.firstName}`);
+                document.write(`Hi, I'm ${this.firstName} <br>`);
+            }
+        }
+        //Kế thừa 
+        class Developer extends Human {
+            code(thing) {
+                // console.log(`${this.firstName} coded ${thing}`)
+                document.write(`${this.firstName} coded ${thing}`);
+            }
+        }
+
+        //Vì lớp Developer được kế thừa từ lớp 
+        //Human nên nó tồn tại hai phương thức sayHello và code.
+        //nên 1 instance tạo từ Developer sẽ sử dụng đưuojc
+
+        const pe_1 = new Developer('Nam', 'Phạm');
+        pe_1.sayHello();
+        pe_1.code('website này');
+
+        console.log(pe_1);
+    </script>
+</body>
+
+</html>

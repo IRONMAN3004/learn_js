@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // var myString = 'Pham Văn Nam';
+        // for (var key in myString) {
+        //     // console.log(key);
+        //     console.log(myString[key]);
+
+        // }
+
+
+
+        function run(object) {
+            var ar = [];
+            for (var key in object) {
+                //  console.log(object[key]);
+                ar.push('Thuộc tính ' + key + ' có giá trị ' + object[key]);
+            }
+            return ar;
+        }
+        var object = {
+            name: 'Nguyen Van A',
+            age: 1616
+        }
+
+        console.log(run(object));
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let isDadHappy = false;
+        // let isDadHappy = true;
+
+        // Định nghĩa một promise
+        let willILetNewToy = new Promise((resolve, reject) => {
+                if (isDadHappy) {
+                    resolve(hihi); // Fulfilled
+                } else {
+                    reject('Bố trượt lô, nên khỏi mua đồ chơi luôn');
+                }
+            })
+            // Cách sử dụng promise trên
+
+        willILetNewToy
+            .then(fulfilled => {
+                console.log(fulfilled);
+            })
+            .catch(reject => {
+                console.log('Chả có đồ chơi nào cả.');
+            })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Thực hành tạo phương thức reduce()
+
+        // Tạo hàm reduce2() với hai tham số là callback và  gia_tri_ban_dau cho Object Constructor Array
+        Array.prototype.reduce2 = function(callback, gia_tri_ban_dau) {
+
+            /*
+                Trường hợp người dùng ko nhập gia_tri_ban_dau:
+                +  arguments.length: kiểm tra xem nếu đối số truyền vào nhỏ hơn 2 thì:
+                +  gia_tri_ban_dau = this[0](gia_tri_ban_dau = numbers[0]): lấy phần tử đầu tiên trong mảng numbers
+                gán cho gia_tri_ban_dau
+                + gán biến i bằng 1 để đối số this[i](number[i]) sẽ bằng 1 => lấy phần tử thứ 2 trong mảng
+            */
+            var i = 0;
+            if (arguments.length < 2) {
+                gia_tri_ban_dau = this[0];
+                i = 1;
+            }
+
+            /*
+            + Sử dụng vòng lặp for để gọi hàm callback(hàm bạn tạo ra lúc bạn gọi hàm reduce2()) nhiều lần
+            + this.length : chiều dài của mảng được truyền vào (mảng numbers)
+            + Gọi lai hàm callback do bạn tạo ra khi gọi hàm reduce2() có 4 đối số được truyền vào:
+                - Đối số gia_tri_ban_dau(trong hàm callback) = tham số gia_tri_ban_dau(trong hàm reduce2)
+                - Đối số this[i] = tham số gia_tri_hien_tai (this[i]: là numbers[i])
+                - Đối số i : là index của phần tử hiện tại trong mảng (mảng numbers)
+                - Đối số this: là mảng hiện tại (mảng numbers)
+            + Giải thích cách hoại động của hàm callback trong hàm reduce2()
+                - lặp qua i = 0; thỏa điều kiện i < this.length => 0 < 5
+                - gọi hàm gọi hàm callback bạn đã định nghĩa lúc bạn gọi hàm reduce2()
+                - trả về : gia_tri_ban_dau + gia_tri_hien_tai => 0 + 1 = 1 (được tính toán phía dưới)
+                - gán giá trị trả về của hàm callback vào tham số gia_tri_ban_dau
+                 - Tiếp tục vòng lặp cho đến khi i >= 5
+            */
+            for (; i < this.length; i++) {
+                gia_tri_ban_dau = callback(gia_tri_ban_dau, this[i], i, this);
+                // dòng trên do reduce nó sẽ nhận vào 2 tham số là callback và biến của giá trị khởi tạo
+                // mà trong hàm callback có 4 tham số đó là total, giá trị hiện tại, index, arrayorigin
+                // nên ở đây ta phải chuyền 4 tham số kia vào
+            }
+            // kết thúc vòng lặp và trả gia_tri_ban_dau
+            return gia_tri_ban_dau; // kết quả của hàm reduce2()
+        }
+
+        var numbers = [1, 2, 3, 4, 5]; // khai báo mảng numbers
+
+        /*
+        Gọi hàm reduce2() do bạn tạo ra bên trên
+            - Nhập vào 2 đối số :
+               + function do bạn tự định nghĩa
+               + giá trị ban đầu : gia_tri_ban_dau
+        */
+        var result = numbers.reduce2(function(gia_tri_ban_dau, gia_tri_hien_tai, i, array) {
+            return gia_tri_ban_dau + gia_tri_hien_tai;
+        });
+
+        console.log(result);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function highlinght([first, ...string], ...values) {
+            console.log(first)
+            console.log(string)
+            console.log(values)
+            return values.reduce(function(sum, b) {
+                    return [...sum, `<span>${b}</span>`, string.shift()] //method.shift() ở đây nó xóa đi phần tử đầu
+                        // và nó trả về phần tử đó luôn nên xẽ nội cái phần tử bị xóa đấy vào bến sum 
+                }, [first]) //vallue đang la mảng
+        }
+        var brand = 'f8'
+        var course = 'jacvascrip'
+            // var html= highlinght`hoc lap trinh${course}tai${bran}!`;
+        var html = highlinght(['hoc lap trinh', 'tai', '!'], course, brand)
+        console.log(html.join(''))
+    </script>
+</body>
+
+</html>

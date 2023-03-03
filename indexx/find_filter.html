@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var ar_1 = [1, 2, 3, 4, 5, 6];
+        //  var ar_2 = ['item2', 1, 2, 3, 'end_item2'];
+        var ar_2 = [1, 2, 3, 6];
+
+
+        function findEqualValues(array1, array2) {
+            // lọc hết các value array 1
+            return array1.filter(function(item1) {
+                //  console.log(item1); // item1 ngay lúc này  là 1,2,3,4,5 nó sẽ mang xuống return 2 để só sánh
+
+                //  console.log('h');
+                // tìm kiếm value trong array 2
+                return array2.find(function(item2) { //đến đây nó sẽ
+                    // item1 chính là phần tử của mỗi lần lặp sử lý xong nó mới đến phần tử tiếp theo trong item1
+                    //      console.log(item2);
+                    // so sánh? tại sao so sánh, lại tự gộp các phần tử giống nhau lại?
+                    return item1 === item2 //item1 sẽ là list gốc còn item 2 sẽ làm 
+                        //công việc lấy phần tử của nó để so sánh vs item1 nếu thỏa mãn dừng luôn
+
+                    /*
+                      vd item =1 xuống dòg 29 này nó sẽ tìm xem nếu item 2 === item 1 thì nó xẽ out tăng biến 
+                      item1 lên do nó === nhau rồi sẽ out luôn do đang sử dụng hàm find
+                      tăng biến item1 =2 nó lại duyệt qua từng phần tử item2 xem có bằng với item1 ko 
+                      nếu phần tử nào == item1 thì dừng lại
+                      và tiêps tục tăng biến item1 lên 
+                    */
+                });
+
+            });
+
+        }
+
+        findEqualValues(ar_1, ar_2);
+        // console.log(findEqualValues(ar_1, ar_2));
+    </script>
+</body>
+
+</html>

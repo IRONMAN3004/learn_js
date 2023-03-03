@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="list_data">
+        <ul class="list">
+
+        </ul>
+    </div>
+
+
+    <script>
+        var users = [{
+                id: 1,
+                name: 'Hung Dam1',
+                avatar: "hinh 1",
+            }, {
+                id: 2,
+                name: 'Kien Dam2',
+                avatar: "hinh 2",
+
+            }, {
+                id: 3,
+                name: 'Son Dang3',
+                avatar: "hinh 3",
+
+            }, {
+                id: 4,
+                name: 'Son Dang4',
+                avatar: "hinh 4",
+
+            }, {
+                id: 5,
+                name: 'Son Dang5',
+                avatar: "hinh 5",
+
+            }
+
+
+        ];
+
+        var comments = [{
+            id: 1,
+            content: 'Anh Son chua ra Video',
+            user_id: 1,
+        }, {
+            id: 2,
+            content: 'Vua ra xong em oi',
+            user_id: 2,
+        }, {
+            id: 5,
+            content: 'Thanks anh',
+            user_id: 5,
+        }]
+
+        // console.log(typeof(comments));
+        /* 
+        1.Lấy comment
+        2.Từ cmt lấy ra user_id
+        3.từ list user_id so sánh với id của user xem cái nào trùng với user_í thì lấy ra
+        */
+
+        // tạo hàm để lấy comment
+        function getComments() {
+            return new Promise(function(resolve) {
+                // làm giả mạng yếu 1 second
+                setTimeout(function() {
+                    resolve(comments)
+                }, 1000)
+            })
+        }
+
+        // tạo hàm lấy id 
+        function getUsersByIds(userIds) {
+            return new Promise(function(resolve) {
+                // Lọc qua từng element của mảng users và lấy ra id của user trùng với user_id của comment
+                var result = users.filter(function(user) {
+                        //kiểm tra từng id của user có trùng với list user_id của comment
+                        return userIds.includes(user.id);
+                    })
+                    // Làm giả chậm 1 second
+                setTimeout(function() {
+                    resolve(result)
+                }, 1000)
+            })
+        }
+
+        getComments()
+            .then(function(comments_ketqua) {
+                var us_id = comments.map(function(cmt) {
+                    return cmt.user_id;
+                })
+
+                return getUsersByIds(us_id)
+                    .then(
+                        function(usernam) {
+                            // console.log(usernam);
+                            return {
+                                //do dữ liệu cuối cùng phải có tên và comment nên ta trả về 1 object
+                                //key  : value
+                                userrrr: usernam,
+                                commentssss: comments_ketqua //row 89
+                                    //trả về 1 object với key userrrr value chính 
+                                    //là list user ddax lọc trùng với user_id của cmt
+                            };
+
+                        }
+                    )
+            })
+
+        .then(
+            function(data) {
+                var html = '';
+                //  console.log(data);
+                var ell = document.querySelector('.list');
+
+                data.commentssss.forEach(function(comment) {
+                        // Lặp qua mảng users trong object data được return ở trên
+                        // kiểm tra id của user có trùng với user_id của comment không
+                        var user = data.userrrr.find(function(userr) {
+                                return userr.id === comment.user_id;
+                            })
+                            // thêm giá trị vào chuỗi html rỗng được tạo ở trên
+                        html += `<li>${user.name}: ${comment.content}</li> `;
+
+                    })
+                    // thay đổi textNode của thẻ ul
+                ell.innerHTML = html
+            }
+        )
+    </script>
+</body>
+
+</html>

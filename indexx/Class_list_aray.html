@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Document</title>
+</head>
+
+<body>
+    <div>Box</div>
+    <div>Box</div>
+    <div>Box</div>
+    <div>Box</div>
+    <div>Box</div>
+    <div>Box</div>
+    <div>Box</div>
+    <div>Box</div>
+    <div>Box</div>
+    <div>Box</div>
+    <script>
+        var el = document.getElementsByTagName('div');
+        for (i = 0; i < el.length; i++) {
+            el[i].classList.add('box');
+            console.log(el[i]);
+        }
+        console.log(el);
+    </script>
+</body>
+
+</html>

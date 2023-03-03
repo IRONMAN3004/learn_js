@@ -1,0 +1,29 @@
+<html>
+
+<body>
+    <script language="javascript">
+        function validate() {
+            // Lấy giá trị input
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            // Lấy đối tượng message
+            var message = document.getElementById("message");
+
+            // Validate
+            if (username == "" || password == "") {
+                message.innerHTML = "<strong>Bạn chưa nhập đầy đủ thông tin!</strong>";
+                message.style.color = "red";
+            } else {
+                message.innerHTML = "Chúc mừng ban, validate thành công!";
+                message.style.color = "blue";
+            }
+
+        }
+    </script>
+    Username: <input type="text" value="" id="username" /> <br/> Username: <input type="password" value="" id="password" /> <br/>
+    <div id="message"></div>
+    <input type="button" value="Login" onclick="validate()" />
+</body>
+
+</html>

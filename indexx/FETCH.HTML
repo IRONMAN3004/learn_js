@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <SCRIPT>
+        // json rest api
+        var api = 'https://jsonplaceholder.typicode.com/users';
+        fetch(api)
+            .then(function(response) {
+                return response.json(); //trả về promise và 
+                //nó sẽ làm nhiệm vụ JSON.parse = javascript type
+            })
+            .then(function(data) {
+                // data.forEach(function(post) {
+                //     // htmls += `<li><h2>${post.title}</h2><p>${post.body}</p></li>`
+                //     console.log(post.address);
+                // })
+                //============================================
+                // return data.map((currentData) => {
+                //     return [
+                //             `<li>`,
+                //             `<h2>UserName: ${currentData.username}</h2>`,
+                //             `<p>Name: ${currentData.name}</p>`,
+                //             `<p>Phone: ${currentData.phone}</p>`,
+                //             `<p>City: ${currentData.address.city}</p>`,
+                //             `</li>`
+                //         ].join("") //chuyển mảng thành dạng chuỗi
+                // })
+
+                //----------------------------------------cách 2----
+                var post2 = data.map(function(data) {
+                    var html = data.map(function(ele) {
+                        console.log(ele);
+                    })
+                })
+
+            })
+            // thằng then phía sau sẽ phụ thuộc vào kết quả của thăfng then phía trước 4
+            // con khi return ra promise sẽ khác
+
+        .then(function(e) {
+            console.log(e);
+        })
+    </SCRIPT>
+</body>
+
+</html>

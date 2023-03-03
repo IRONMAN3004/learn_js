@@ -1,0 +1,144 @@
+    /* ======= Buttons ======== */
+    /* Block */
+    
+    .btn {
+        display: inline-block;
+        text-decoration: none;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        color: #fff;
+        padding: 12px 48px;
+        border-radius: 50px;
+        cursor: pointer;
+        min-width: 120px;
+        transition: opacity 0.2s ease;
+    }
+    /* Modifier */
+    
+    .btn--size-l {
+        padding: 16px 56px;
+    }
+    
+    .btn--size-s {
+        padding: 8px 32px;
+    }
+    
+    .btn:hover {
+        opacity: 0.8;
+    }
+    
+    .btn+.btn {
+        margin-left: 16px;
+    }
+    
+    .btn--success {
+        background-color: #71be34;
+    }
+    
+    .btn--warn {
+        background-color: #ffb702;
+    }
+    
+    .btn--danger {
+        background-color: #ff623d;
+    }
+    
+    .btn--disabled {
+        opacity: 0.5 !important;
+        cursor: default;
+    }
+    
+    .toast {
+        background-color: rgba(241, 222, 225, 0.2);
+        display: flex;
+        padding: 15px 10px;
+        align-items: center;
+        min-width: 400px;
+        max-width: 450px;
+        border-radius: 4px;
+        border-left: 4px solid;
+        /* animation: slideInLeft ease-in-out 1s, fadeout linear 1s 2s forwards; */
+        transition: all 0.5s ease-in-out;
+    }
+    
+    @keyframes slideInLeft {
+        0% {
+            transform: translateX(calc(100% + 30px));
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+    
+    @keyframes fadeout {
+        to {
+            opacity: 0;
+        }
+    }
+    
+    #toast {
+        position: fixed;
+        top: 30px;
+        right: 30px;
+    }
+    
+    .toast+.toast {
+        margin-top: 10px;
+    }
+    
+    .toast_icon {
+        padding: 0px 15px 0px 0px;
+    }
+    
+    .toast_body {
+        flex-grow: 1;
+    }
+    
+    .toast_title {
+        margin: 0;
+        padding: 0 0 5px 0;
+    }
+    
+    .toast_msg {
+        margin: 0;
+        padding: 5px 0 0 0;
+    }
+    
+    .toast_close {
+        float: right;
+    }
+    
+    .toast--Success {
+        border-color: rgb(139, 234, 151);
+    }
+    
+    .toast--Success .toast_icon {
+        color: rgb(139, 234, 151);
+    }
+    
+    .toast--Info {
+        border-color: rgb(127, 165, 198);
+    }
+    
+    .toast--Info .toast_icon {
+        color: rgb(127, 165, 198);
+    }
+    
+    .toast--Warning {
+        border-color: rgb(236, 223, 90);
+    }
+    
+    .toast--Warning .toast_icon {
+        color: rgb(236, 223, 90);
+    }
+    
+    .toast--Error {
+        border-color: rgb(247, 16, 16);
+    }
+    
+    .toast--Error .toast_icon {
+        color: rgb(247, 16, 16);
+    }

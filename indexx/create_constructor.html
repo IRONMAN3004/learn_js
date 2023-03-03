@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function User(fName, lName, Avt) {
+            this.fName = fName;
+            this.lName = lName;
+            this.Avt = Avt;
+            this.getName = function() {
+                return `${this.fName} ${this.lName}`
+            }
+        }
+
+        User.prototype.className = '70DCHT22'
+        User.prototype.getClassName = function() {
+            return this.className;
+        }
+
+        var user = new User('Nam', 'Phạm', 'avt');
+        var user2 = new User('hoa', 'hoang', 'avt');
+        var user3 = new User('hoax', 'hoangx', 'avt');
+        var user4 = new User('hoaxx', 'hoangxx', 'avt');
+
+        user.title = 'chia se'
+        user2.cmt = 'Hôm nay em cưới rồi'
+
+
+        console.log(user.className);
+        console.log(user2.getClassName());
+        console.log(user3.getClassName());
+        console.log(user4.getClassName());
+
+        //  console.log(user3.cmt);//sẽ bị lỗi do thuộc tính cmt chỉ có trong object user2
+        console.log(user.getName());
+
+        console.log(user2.cmt);
+
+        console.log(user2);
+    </script>
+</body>
+
+</html>

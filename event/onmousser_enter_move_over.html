@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .content {
+            display: flex;
+            width: 100%;
+        }
+        
+        .content_item {
+            padding: 50px 30px;
+            background-color: aquamarine;
+            flex: 1;
+            margin-right: 10px;
+            text-align: center;
+            font-size: 20px;
+            border-radius: 10px;
+        }
+        
+        .content_item:last-child {
+            margin-right: 0px;
+            color: rgb(210, 127, 127);
+        }
+        
+        .content_item p::first-letter {
+            font-size: 50px;
+            line-height: 15px;
+            font-family: sans-serif;
+            font-style: italic;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>Ví dụ này cho thấy sự khác biệt giữa onmousemove, onmouseenter và onmouseover</h3>
+    <p>Sự kiện onmousemove xảy ra mỗi khi con trỏ chuột được di chuyển qua phần tử div..</p>
+    <p>Sự kiện mouseenter chỉ xảy ra khi con trỏ chuột vào phần tử div.</p>
+    <p>Sự kiện onmouseover xảy ra khi con trỏ chuột đi vào phần tử div và các phần tử con của nó (p và span).</p>
+
+
+    <div class="content">
+        <div class="content_item" onmousemove="mouseMove()">
+            <p class="content_item-title">onmousemove<span style="display: block;background-color: blueviolet;color:red;" id="demo">Mouse over me!</span></p>
+        </div>
+
+        <div class="content_item" onmouseenter="mouseEnter()">
+            <p class="content_item-title">onmouseenter<span id="demo2" style="display: block;background-color: blueviolet;color:red;">Mouse over me!</span></p>
+        </div>
+
+        <div class="content_item" onmouseover="mouseOver()">
+            <p class="content_item-title">onmouseover<span id="demo3" style="display: block;background-color: blueviolet;color:red;">Mouse over me!</span></p>
+        </div>
+    </div>
+    <script>
+        var a = 0;
+        var b = 0;
+        var c = 0;
+
+        function mouseMove() {
+            document.getElementById('demo').innerHTML = a++; //a+=1;
+
+        }
+
+        function mouseEnter() {
+            document.getElementById('demo2').innerHTML = b += 3; //a+=1;
+
+        }
+
+        function mouseOver() {
+            document.getElementById('demo3').innerHTML = c += 6; //a+=1;
+
+        }
+    </script>
+</body>
+
+</html>

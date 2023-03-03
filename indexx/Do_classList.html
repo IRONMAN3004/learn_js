@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Title</h1>
+    <p class="sub-title">Content</p>
+    <script>
+        var elemt = document.querySelector('h1');
+        console.log(elemt);
+        elemt.classList.add('title');
+
+        // var elem = document.querySelector('p');
+        // console.log(elem);
+        // elem.className = ' content';
+        var p = document.querySelector('p')
+        p.classList.replace('sub-title', 'content')
+    </script>
+</body>
+
+</html>

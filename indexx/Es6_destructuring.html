@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //----function
+        // var arr = () => {
+        //     return [
+        //         'nam',
+        //         'nam1'
+        //     ]
+        // }
+
+        // var [name1, name2] = arr();
+        // console.log(name2);
+
+        //----sai
+        // var ar = [
+        //     1, 2, 3, 4, 5
+        // ]
+
+        // function logg(a, b, ...res) { //do chuyueefn vào 1 hàm nên tham số định nghĩa phải có dấu[]  còn obj thif {}
+        //     console.log(a + ':' + b);
+        // }
+        // logg(ar);
+
+        var ar = [
+                1, 2, 3, 4, 5
+            ]
+            // var [a, b, ...rest] = ar;
+            // console.log(a + ':' + b);
+
+        function logg([a, b, ...res]) {
+            console.log(a + ':' + b);
+            console.log(res);
+        }
+
+        // function logg([a, b], ...res) {
+        //     console.log(a + ':' + b);
+        //     console.log(res);
+        // }
+        logg(ar);
+    </script>
+</body>
+
+</html>

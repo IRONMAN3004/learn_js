@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Document</title>
+    <style>
+        button {
+            background-color: #f05123;
+            padding: 9px 16px;
+            border-radius: 999px;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+    <button>Submit</button>
+    <script>
+        var btn = document.querySelector('button');
+        btn.onclick = function(e) {
+            // e.target.style.color = '#fff';
+            // this.style.color ='#fff';
+            Object.assign(e.target.style, {
+                color: '#fff'
+            })
+        }
+    </script>
+</body>
+
+</html>

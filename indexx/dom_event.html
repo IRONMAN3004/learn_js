@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 class="heading">Dom event</h1>
+    <h1 class="heading">Dom event2</h1>
+
+    <h1 class="heading">Dom event3</h1>
+
+    <h1 class="heading">Dom event4</h1>
+
+    <h1 class="heading">Dom event5</h1>
+    <script>
+        var h1_element = document.getElementsByClassName('heading');
+        console.log(h1_element);
+
+        for (var i = 0; i < h1_element.length; i++) {
+            h1_element[i].onclick = function(e) {
+                // console.log(h1_element[i]);
+                console.log(e.target);
+            }
+        }
+
+        console.log(i);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="compo">
+        <input type="text" onchange="validate(this)" name="product_nums" init-value="100" value="20" />
+    </div>
+    <script>
+        function validate(obj) {
+            var value = parseInt(obj.value);
+            console.log(obj.value);
+            console.log(obj); //tag input ở đây typeOf ra là 1 obj
+
+            // Nếu nhập giá trị bé hơn 0
+            // thì thông báo lỗi và backup lại giá trị ban đầu
+            if (value <= 0) {
+
+                var p = document.createElement("p");
+                p.innerHTML = 'Số lượng đã hết';
+                p.style.color = "red";
+
+                var init_value = obj.getAttribute('init-value');
+                obj.value = init_value;
+
+                document.querySelector('.compo').appendChild(p);
+            } else {
+                // Ngược lại nhập đúng thì 
+                // Cập nhật giá trị backup
+                obj.setAttribute('init-value', value);
+            }
+        }
+    </script>
+</body>
+
+</html>

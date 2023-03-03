@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var n = 5;
+
+        function Gt(n) {
+            if (n > 0) {
+                return n * Gt(n - 1);
+            } else {
+                return 1;
+            }
+        }
+
+        console.log(Gt(n));
+    </script>
+</body>
+
+</html>

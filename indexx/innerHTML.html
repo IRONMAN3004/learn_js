@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box">
+
+    </div>
+    <div class="box2">
+
+    </div>
+    <button onclick="GetInnerHTML()">Sent</button>
+    <p id="demo"></p>
+    <script>
+        var boxElement = document.querySelector('.box');
+        var boxElement2 = document.querySelector('.box2');
+
+        // console.log(boxElement);
+
+        boxElement.innerHTML = '<h1>Phạm Văn Nam</h1>';
+        boxElement2.innerHTML = 'Thêm textNode';
+        console.log(boxElement.innerHTML);
+
+        function GetInnerHTML() {
+            var boxElement = document.querySelector('.box');
+            var text = boxElement.innerHTML;
+            //document.getElementById("demo").innerHTML = text;
+            document.getElementById("demo").innerText = text; //dùng cái này set text thôi còn dùng cái trên set text kiểu h1
+            //hay nói cách khác cái dưới là thêm text node vào element còn cái trên thêm 1 element vào 1 elemrnt khác
+
+        }
+    </script>
+</body>
+
+</html>

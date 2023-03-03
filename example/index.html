@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="main.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <ul class="menu">
+            <li class="menu-item active" title="home"><a href="#" class="munu_button home"><i class="fa-solid fa-bars"></i></a></li>
+            <li class="menu-item" title="search">
+                <a href="#" class="search"><i class="fa-solid fa-magnifying-glass"></i></a>
+            </li>
+            <li class="menu-item" title="pencil">
+                <a href="#" class="pencil"><i class="fa-solid fa-pencil"></i></a>
+            </li>
+            <li class="menu-item" title="about">
+                <a href="#" class=" about"><i class="fa-regular fa-user"></i></a>
+            </li>
+            <li class="menu-item" title="archive">
+                <a href="#" class="archive"><i class="fa-solid fa-box-archive"></i></a>
+            </li>
+            <li class="menu-item" title="contact">
+                <a href="#" class="contact"><i class="fa-regular fa-envelope"></i></a>
+            </li>
+        </ul>
+
+        <ul class="menu-bar">
+            <li class="menu-bar_item">
+                <a href="#" class="menu-button menu-bar_link">Menu</a>
+            </li>
+            <li class="menu-bar_item">
+                <a href="#" class="menu-bar_link">Home</a>
+            </li>
+            <li class="menu-bar_item">
+                <a href="#" class="menu-bar_link">Profile</a>
+            </li>
+            <li class="menu-bar_item">
+                <a href="#" class="menu-bar_link">Editorial</a>
+            </li>
+            <li class="menu-bar_item">
+                <a href="#" class="menu-bar_link">About</a>
+            </li>
+        </ul>
+    </div>
+    <script>
+        const $ = document.querySelector.bind(document);
+        const $$ = document.querySelectorAll.bind(document);
+
+        function active_item() {
+            var item_active = $('menu-item');
+            console.log(item_active);
+        }
+    </script>
+</body>
+
+</html>

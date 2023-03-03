@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- .div>ul*3 -->
+    <div class="ul">
+        <li>nam</li>
+        <li>Phạm</li>
+    </div>
+    <script>
+        // function getContentLength(content) {
+        //     return content.length;
+
+        // }
+
+        // // Mở tab Console để xem kết quả trực quan
+        // console.log(getContentLength('JavaScript'));
+        // console.log(getContentLength('Hello World'));
+        //------------------------------------------------------------------------
+        // var ar = [
+        //     'php',
+        //     'js',
+        //     'C++',
+        //     'C',
+        //     'C&',
+        //     'java',
+        //     'python'
+        // ];
+
+        // console.log(ar.length);
+        //------------------------------------------------------------------------------
+
+        // cách thủ công
+        function joinWithCharacter(array, charactor) {
+            let str = '';
+
+            for (let i = 0; i < array.length; i++)
+                if (i == (array.length - 1))
+                    str += array[i];
+                else str += array[i] + charactor;
+
+            return str;
+        }
+        //cách 2---------------------------------------------------
+        // function joinWithCharacter(array, charactor) {
+        //     return array.join(charactor)
+        // }
+        var ar = [
+            'php',
+            'js',
+            'C++',
+            'C',
+            'C&',
+            'java',
+            'python'
+        ];
+
+        var result = joinWithCharacter(ar, ' - ');
+        console.log(result); // Expected: "Honda - Mazda - Mercedes"
+
+        //=---------------------------------------------------------------------
+    </script>
+</body>
+
+</html

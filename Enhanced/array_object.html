@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var ar = ([
+   ['name', 'Son Dang'], 
+   ['age', 21], 
+   ['address', 'Ha Noi']
+])
+function arrToObjj(arr) {
+  return arr.reduce((init,[key, value]) => {
+         init = {...init,[key] : value}
+         console.log(init)
+      return init;
+   },{})
+};
+
+function arrToObj2(arr) {
+ // var arr_new={}
+ return arr.reduce(function(inti,item){
+       inti[item[0]] = item[1]
+       console.log(inti[item[0]] = item[1])
+       return inti;
+  },{})
+}
+
+  // arrToObjj(ar)
+   arrToObj2(ar)
+    </script>
+</body>
+</html>

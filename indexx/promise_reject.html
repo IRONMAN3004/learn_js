@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function sleep(ms) {
+            return new Promise(
+                function(resolve) {
+                    setTimeout(
+                        resolve, ms
+                    )
+                }
+            )
+        }
+
+        // function sleepss(giay) {
+        //     return new Promise(function(resolve) {
+        //         setTimeout(function() {  // khác biệt chôc resolve
+        //             resolve("Nammmmmmmm")
+        //         }, giay)
+        //     })
+        // }
+
+        sleep(1000)
+            .then(
+                function() {
+                    console.log(1);
+                    return sleep(4000);
+                }
+            )
+
+        .then(
+                function() {
+                    console.log(2);
+                    return sleep(4000);
+                }
+            )
+            .then(
+                function() {
+                    console.log(3);
+                    return new Promise(
+                        function(resolve, reject) {
+                            reject('Có lỗi');
+                        }
+                    );
+                }
+            )
+
+        .then( //do reject nó sẽ ko lọt vào then này mà phải vào catch
+            function() {
+                console.log(4);
+                return sleep(4000);
+            }
+        )
+
+        .catch(
+            function(err) {
+                console.log(err);
+            }
+        )
+    </script>
+</body>
+
+</html>

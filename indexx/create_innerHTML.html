@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Document</title>
+</head>
+
+<body>
+    <ul class="courses-list">
+
+    </ul>
+    <script>
+        //--------------------------------------------------------
+        // var courses = ['HTML & CSS', 'Javascript', 'PHP', 'Java']
+
+        // function render(courses) {
+        //     var list = document.querySelector('ul');
+        //     courses.map(function(ele, index) {
+        //         // list.innerHTML = `<li>${course} </li>`;
+        //         // console.log(index);
+        //         // console.log(ele);
+        //         console.log(list.innerHTML = `<li>${ele} </li>`);
+
+        //     });
+
+        // }
+
+        //--------------------------------------------------------------
+        // function render(courses) {
+        //     var danhsachkhoahoc = document.querySelector('ul')
+        //     for (var i of courses) {
+        //         danhsachkhoahoc.innerHTML += `<li>${i}</li>`
+        //     }
+        // }
+        //------------------------------------------------------
+        var courses = ['HTML & CSS', 'Javascript', 'PHP', 'Java']
+
+        function render(courses) {
+            // for (var i = 0; i < courses.length; i++) {
+            //     html += `<li>${courses[i]} </li>`;
+            // }
+            let html_String = courses.map(function(course, index) {
+                console.log(index);
+                console.log('<li>' + course + '</li>');
+
+
+                return '<li>' + course + '</li>' // kết qua cuối cùng sau khi lặp sẽ lưu vào html_String
+            });
+            let ulObj = document.querySelector('ul');
+            ulObj.innerHTML = html_String;
+            console.log(html_String);
+        }
+
+
+        render(courses);
+    </script>
+</body>
+
+</html>

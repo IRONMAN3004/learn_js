@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>NaM</p>
+    <script>
+        var pro_mise = new Promise(
+            function(resolve, reject) {
+                resolve("Phạm văn nam");
+            }
+        )
+
+        pro_mise
+        // .then(
+        //     function(data) {   //sẽ nhận được data Phạm Văn nam
+        //         return new Promise(
+        //             function(resolve) {
+
+        //                 setTimeout(function() {
+        //                     console.log(data);
+        //                     //   resolve("") // nó sẽ trả về data cho .then phía sau tương tự như resolve như hàm dòng 16
+        //                     // nếu resolve chuyền vào gì thì then phí dươi này sẽ nhận đc giá trị đấy
+        //                 }, 2000);
+        //             }
+        //         );
+        //     })
+
+            .then(
+            function() {
+                return new Promise(
+                    function(resolve) {
+
+                        setTimeout(function() {
+                            console.log();
+                            resolve("Nammmmmmm") // nó sẽ trả về data cho .then phía sau tương tự như resolve như hàm dòng 16
+                                // nếu resolve chuyền vào gì thì then phí dươi này sẽ nhận đc giá trị đấy
+                        }, 2000);
+                    }
+                );
+            })
+
+        .then(function(data) {
+            console.log(data);
+        })
+
+        .then(function(data) { //tại sao data dòng 16 then dưới đây ko nhận được
+            console.log(data); //sẽ ra undifine do ko chuyền gì mà chỉ định nghĩa
+        })
+    </script>
+</body>
+
+</html>

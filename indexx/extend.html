@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>Câu hỏi được đặt ra là tại sao cần tính kế thừa? Câu trả lời như sau:</li>
+        <li>Thực tế thì nhiều đối tượng có thể có những thuộc tính và hành động giống nhau, và bắt buộc mỗi đối tượng chúng ta phải cài đặt một class riêng lẻ, thì việc kế thừa sẽ giúp cho việc cài đặt các đối tượng trở nên đơn giản hơn.</li>
+        <li>Ví dụ: Ta có đối tượng động vật, trong động vật lại có nhiều loại động vật khác nhau như sư tử, rùa.</li>
+        <li>
+            Động vật sẽ có các đặc tính như: Số cân, màu lông, chủng loại... Động vật sẽ có các hành động như: Ăn, chạy, săn mồi ...
+        </li>
+        <li>Những đặc tính và hành động trên cũng có trong hai đối tượng sư tử và rùa, vì vậy hai đối tượng này ta sẽ khai báo kế thừa đối tượng động vật.</li>
+    </ul>
+
+    <DIV style="display: inline;">
+
+        class Animal { constructor(name)
+        <br> { this.name = name;
+        <br> this.speed = 0; // Tốc độ chạy 0km / h }
+        <br> run(speed) { this.speed = speed;
+        <br> alert(`${this.name} chạy tốc độ là ${this.speed}.`); }
+        <br> stop() { this.speed = 0;
+        <br> alert(`${this.name} đứng yên.`); } }<br>
+
+    </DIV>
+
+
+    <script>
+        class Animal {
+            constructor(name) {
+                this.name = name;
+                this.speed = 0; // Tốc độ chạy 0km / h
+            }
+            run(speed) {
+                this.speed = speed;
+                alert(`${this.name} chạy tốc độ là ${this.speed}.`);
+            }
+            stop() {
+                this.speed = 0;
+                alert(`${this.name} đứng yên.`);
+            }
+        }
+
+        class Lion extends Animal {
+            roar() {
+                alert(`${this.name} đang gầm`);
+            }
+        }
+
+        let lion = new Lion("Sử tử");
+        lion.run(80);
+        lion.stop();
+        lion.roar();
+    </script>
+</body>
+
+</html>

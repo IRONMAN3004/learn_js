@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .sliding-navbar {
+            position: absolute;
+            top: 0;
+            left: -400px;
+            height: 100vh;
+            width: 400px;
+            background: #333;
+            transition: left 0.8s ease-in-out;
+            z-index: 300;
+        }
+        
+        .sliding-navbar--open {
+            left: 0px;
+        }
+        
+        .mask {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            height: 100vh;
+            width: 100%;
+            background: #333;
+            opacity: 0.8;
+            z-index: -100;
+        }
+        
+        .show {
+            z-index: 200;
+        }
+        
+        .brand {
+            text-decoration: none;
+            color: #fff;
+            display: block;
+            width: 140px;
+            margin: 20px auto 0 auto;
+            font-family: sans-serif;
+            transition: color 0.2s ease-in-out;
+        }
+        
+        .brand:hover {
+            color: #ccc;
+        }
+        
+        .navbar--items {
+            list-style-type: none;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .navbar--item {
+            margin: 20px;
+            letter-spacing: 1px;
+            color: white;
+            font-family: sans-serif;
+            text-transform: uppercase;
+        }
+        
+        .hamburger-menu {
+            z-index: 999;
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            margin: auto;
+            width: 40px;
+            height: 30px;
+            cursor: pointer;
+        }
+        
+        .hamburger {
+            position: relative;
+            transform: translateY(10px);
+            background: rgb(255, 255, 255);
+            transition: all 0ms 300ms;
+        }
+        
+        .hamburger,
+        .hamburger:after,
+        .hamburger:before {
+            width: 40px;
+            height: 3px;
+        }
+        
+        .hamburger:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 10px;
+            background: white;
+            transition: bottom 0.3s ease-in-out;
+        }
+        
+        .hamburger:after {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 10px;
+            background: rgb(62, 216, 198);
+            transition: top 0.3s ease-in-out;
+        }
+        
+        .menu-opened:before {
+            bottom: 3px;
+            transition: bottom 0.3s ease-in-out;
+        }
+        
+        .menu-opened:after {
+            top: 3px;
+            transition: top 0.3s ease-in-out;
+        }
+        /* useless shit */
+        
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .main-content {
+            height: 100vh;
+            min-width: 100%;
+            background: linear-gradient(45deg, #FEAC5E, #C779D0, #4BC0C8);
+        }
+        
+        .desc {
+            color: white;
+            font-family: sans-serif;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="hamburger-menu">
+        <div class="hamburger"></div>
+    </div>
+
+    <navbar class="sliding-navbar">
+        <a href="http://romainchemartin.com" class="brand">Romain Chemartin</a>
+        <ul class="navbar--items">
+            <li class="navbar--item">Item 1</li>
+            <li class="navbar--item">Item 2</li>
+            <li class="navbar--item">Item 3</li>
+        </ul>
+    </navbar>
+
+    <div class="mask"></div>
+    <section class="main-content">
+        <div class="content-wrapper">
+            <p class="desc">Sliding menu</p>
+        </div>
+    </section>
+
+    <script>
+        const $ = document.querySelector(document);
+
+        $(function() {
+            $('.hamburger-menu').click(function() {
+                $('.sliding-navbar').toggleClass('sliding-navbar--open');
+                $('.mask').toggleClass('show')
+                $('.hamburger').toggleClass('menu-opened');
+            });
+
+            $('.mask').click(function() {
+                $('.sliding-navbar').toggleClass('sliding-navbar--open');
+                $('.mask').removeClass('show');
+                $('.hamburger').toggleClass('menu-opened');
+            })
+        });
+    </script>
+</body>
+
+
+</html>

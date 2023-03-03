@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <script>
+        //ARRAY EXAMPLE 1 
+        var course = [
+                'Javascript',
+                'PHP',
+                'HTML',
+                'REACT JS',
+                'ANGULAR JS',
+                'PHP',
+            ]
+            //ARRAY EXAMPLE 2
+        var array = [1, 2, 3, 4, 5, 6];
+
+        //forEach()
+        //1. Create forEach();
+        Array.prototype.forEach2 = function(callback) {
+                var length = this.length;
+                for (i = 0; i < length; i++) {
+                    callback(this[i], i);
+                }
+            }
+            //2. Using
+        course.forEach2(function(valueCurrent, index) {
+            console.log(index, valueCurrent);
+        });
+
+        //REDUCE()
+        //1. Create reduce();
+        Array.prototype.reduce2 = function(callback, initial) {
+                var i = 0;
+                var length = this.length;
+                if (arguments.length < 2) {
+                    initial = this[0];
+                    i = 1;
+                }
+                var result = initial;
+                for (; i < length; i++) {
+                    result = callback(result, this[i], i);
+                }
+                return result;
+            }
+            //2. Using
+        var tong = array.reduce2(function(total, current, index) {
+            return total + current;
+        }, 0)
+        console.log(tong);
+
+        // FIN();
+        //1. Create fin();
+        Array.prototype.find2 = function(callback, value) {
+                var bol;
+                var array = [];
+                for (var i = 0; i < this.length; i++) {
+                    bol = callback(this[i], i);
+                    if (bol === true) {
+                        return array = this[i];
+                    }
+                }
+                return value;
+            }
+            //2. Using
+        var string = course.find2(function(valueCurrent) {
+            return valueCurrent === 'PHP';
+        });
+        console.log(string);
+
+        //filter()
+        // <
+        //1. Create filter();
+        Array.prototype.filter2 = function(callback) {
+                var result = [];
+                var bol;
+                var length = this.length;
+                for (i = 0; i < length; i++) {
+                    bol = callback(this[i], i, this);
+                    if (bol == true) {
+                        result.push(this[i]);
+                    }
+                }
+                return result;
+            }
+            //2. Using
+        var string = course.filter2(function(value, index, arr) {
+            return value == 'PHP';
+        })
+        console.log(string);
+    </script> -->
+    <script>
+        //Map
+        Array.prototype.map2 = function(callBack) {
+                var output = []
+                for (var i = 0; i < this.length; ++i) {
+                    var result = callBack(this[i], i);
+                    output.push(result);
+                }
+                return output
+            }
+            //forEach
+        Array.prototype.forEach2 = function(callback) {
+                for (var i = 0; i < this.length; ++i) {
+                    callback(this[i], i, this)
+                }
+            }
+            //find
+        Array.prototype.find2 = function(callback) {
+                var result;
+                for (var i = 0; i < this.length; i++) {
+                    if (callback(this[i], i, this)) {
+                        result = this[i];
+                        break;
+                    }
+                }
+                return result;
+            }
+            //filter
+        Array.prototype.filter2 = function(callback) {
+                var output = []
+                for (var i = 0; i < this.length; i++) {
+                    if (callback(this[i], i, this)) {
+                        output.push(this[i]);
+                    }
+                }
+                return output
+            }
+            //reduce
+        Array.prototype.reduce2 = function(callback, bienluutru) {
+                for (var i = 0; i < this.length; i++) {
+                    bienluutru = callback(bienluutru, this[i], i, this)
+                }
+                return bienluutru
+            }
+            //every
+        Array.prototype.every2 = function(callback) {
+                var result = true
+                for (var i = 0; i < this.length; i++) {
+                    if (!callback(this[i], i, this)) {
+                        result = false
+                        break
+                    }
+                }
+                return result;
+            }
+            //some
+        Array.prototype.some2 = function(callback) {
+            var result = false
+            for (var i = 0; i < this.length; i++) {
+                if (callback(this[i], i, this)) {
+                    result = true
+                    break
+                }
+            }
+            return result;
+        }
+        var courses = [{
+            id: 1,
+            name: 'Javascript',
+            price: 50
+        }, {
+            id: 2,
+            name: 'PHP',
+            price: 60
+        }, {
+            id: 3,
+            name: 'Ruby',
+            price: 70
+        }]
+
+        var check = courses.some2(function(course, index) {
+            return course.id === 1;
+        })
+        console.log(check)
+    </script>
+
+    <!-- <script>
+        
+Array.prototype.map2 = function (callback) {
+    // Map trả về mảng >> tạo mảng để lưu trữ
+    var newArray = []
+    for (let i = 0; i < this.length; i++) {
+        // Lưu từng giá trị vào result
+        // Nhập vào giá trị gì thì lưu (trả) về giá trị đó
+        let result = callback(this[i], i, this)
+        // rồi thêm vào
+        newArray.push(result)
+    }
+    return newArray
+
+}
+
+Array.prototype.every2 = function (callback) {
+
+    var dem = 0
+    for (let i = 0; i < this.length; i++) {
+        console.log(callback(this[i]))
+        // Kiểm tra các element nếu trả về true thì dc chạy
+        if (callback(this[i], i, this)) {
+            // Bao nhiêu true thì bấy nhiêu đếm
+            dem++
+            console.log(dem)
+        }
+    }
+    //  Kt xem số biến đếm có bằng dộ dài mảng k
+    // Do every : yêu cầu các phần tử phải đúng hết
+    if (dem === this.length) {
+        return true
+    }
+    return false
+}
+
+Array.prototype.some2 = function (callback) {
+    for (let i = 0; i < this.length; i++) {
+        console.log(callback(this[i]))
+        // Kiểm tra các element nếu trả về true thì dc chạy
+        if (callback(this[i], i, this)) {
+            //    Nếu có 1 phần tủ true thì trả về true
+            return true
+        }
+    }
+    return false
+}
+var course = [
+    'JavaScript', 'PHP', 'Ruby', 'JavaScript'
+]
+var course2 = [
+    1, 2, 3, 4, 5
+]
+
+var htmls = course2.some2(function (course2, i, arr) {
+    return course2 > 5
+})
+console.log(htmls)
+
+    </script> -->
+    <!-- <script>
+    // thisValue - tham số không bắt buộc. Nếu được truyền vào thì thisValue sẽ được sử. Nếu không được truyền vào thì giá trị "this" là "undefined"
+Array.prototype.forEach2 = function (callback, thisValue) {
+    let arrLength = this.length
+    for (let i = 0; i < arrLength; i++) {
+        callback(this[i], i, this)
+    }
+}
+
+Array.prototype.reduce2 = function (callback, result) {
+    let i = 0
+    //  Kiểm tra nếu có tham số thứ 2 k
+    if (arguments.length < 2) {
+        // nếu có thì i sẽ bắt đầu từ 1 >> tăng phần tử tt lên
+        i = 1
+        // biến lưu trữ sẻ bắt đàu từ element đầu tiên
+        result = this[0]
+    }
+    for (; i < this.length; i++) {
+        // Sau khi thực hiện phép toán thì lưu vào biến lưu trữ (result).>> chuyển lại vào biến lưu trữu trong callback
+        result = callback(result, this[i], i, this)
+    }
+    return result
+}
+
+Array.prototype.find2 = function (callback) {
+    // Khai báo để kiểm tra có phần tử cần tìm k
+    let check = 0
+    for (let i = 0; i < this.length; i++) {
+        console.log(callback(this[i]))
+
+        // Kiểm tra từng phần tử (có trong mảng k)nếu trả về true thì thêm vào newArray
+        if (callback(this[i], i, this)) {
+            check++
+            // Sau khi tìm thấy thì trả về phần tử đầu tiên
+            // element nào về true là phần tử đó
+            return this[i]
+        }
+    }
+    if (check === 0) {
+        return undefined
+    }
+}
+Array.prototype.filter2 = function (callback) {
+    // tạo 1 arr mới để lưu trữ
+    var newArray = []
+
+    for (let i = 0; i < this.length; i++) {
+        console.log(callback(this[i]))
+        // Kiểm tra từng phần tử nếu trả true thì thêm vào newArray
+        if (callback(this[i], i, this)) {
+            // nếu có thì thêm vào từng element được tìm thấy
+            newArray.push(this[i])
+        }
+    }
+    return newArray
+
+}
+
+   </script> -->
+</body>
+
+</html>

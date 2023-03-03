@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button class="bt">Gửi</button>
+    <p class="title"></p>
+    <script>
+        var el = document.querySelector('.bt');
+        var el2 = document.querySelector('.title');
+
+        console.log(el);
+        el.style.color = 'red';
+
+        function go1() {
+            // alert('Công việc 1');
+            el2.innerHTML = "<strong>Phạm văn Nam</strong>";
+        }
+
+        function go2() {
+            alert('Công việc 2');
+        }
+
+        function go3() {
+            alert('Công việc 3');
+        }
+        el.addEventListener('click', go1);
+        // el.addEventListener('click', go2);
+        // el.addEventListener('click', go3);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        /* 
+                            1. Định nghĩa key: value cho object
+                            2. Định nghĩa method cho object
+                            3. Định nghĩa key cho object dưới dạng biến
+                            */
+        // var name = 'Phạm văn Nam';
+        // var age = 21;
+        var value_name = 'name';
+        var value_age = 'age';
+        var person = {
+            // name,
+            // age,
+            [value_name]: 'Nam maN',
+            [value_age]: 21,
+            getname() {
+                return name;
+            }
+        }
+
+        console.log(person);
+    </script>
+</body>
+
+</html>

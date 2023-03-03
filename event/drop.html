@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <style>
+        .droptarget {
+            float: left;
+            width: 100px;
+            height: 35px;
+            margin: 15px;
+            padding: 10px;
+            border: 1px solid #aaaaaa;
+        }
+    </style>
+</head>
+
+<body>
+
+    <p>Drag the p element back and forth between the two rectangles:</p>
+
+    <div class="droptarget" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <p ondragstart="dragStart(event)" ondrag="dragging(event)" draggable="true" id="dragtarget">Drag me!</p>
+    </div>
+
+    <div class="droptarget" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+    <p style="clear:both;"><strong>Note:</strong> drag events are not supported in Internet Explorer 8 and earlier versions or Safari 5.1 and earlier versions.</p>
+
+    <p id="demo"></p>
+
+    <script>
+        function dragStart(event) {
+            event.dataTransfer.setData("Text", event.target.id);
+            // Hàm trên cho biết dữ liệu kéo thiết lập là kiểu "text" và trong nó lưu trữ ID của phần tử (divdrag). Có hàm đó rồi có thể áp dụng vào phần tử muốn kéo, 
+            // ví dụ kích hoạt phần tử div có id là divdrag có khả năng kéo:
+            // Khi một phần tử được kéo, nó sẽ gọi hàm được chỉ ra trong thuộc tính ondragstart="function_name(event)", dữ liệu sự kiện event trong tham số hàm có chứa dữ liệu phần tử
+            //  được kéo và gọi phương thức event.dataTransfer.setData() để lưu lại
+        }
+
+        function dragging(event) {
+            document.getElementById("demo").innerHTML = "The p element is being dragged";
+        }
+
+        function allowDrop(event) {
+            event.preventDefault();
+            // Khi dữ liệu được thả vào một phần tử nào đó, thì sự kiện drop sẽ phát sinh. Mặc định thì dữ liệu hay phần tử này không có phép thả lên phần tử khác. Nên muốn cho phép thả vào một phần tử thì cần gọi phương thức event.preventDefault() 
+            // thiết lập tại thuộc tính ondragover.
+        }
+
+        function drop(event) {
+            event.preventDefault();
+            // Khi dữ liệu thả vào một phần tử, sự kiện thả sẽ diễn ra và nó sẽ gọi hàm thiết lập trong thuộc tính ondrop. 
+            // Ví dụ xây dựng hàm để xử lý sự kiện này và lấy dữ liệu thả vào:
+            var data = event.dataTransfer.getData("Text");
+            event.target.appendChild(document.getElementById(data));
+            //do data nó chưa cả id nên ta dùng đươuc getbyID
+            document.getElementById("demo").innerHTML = "The p element was dropped";
+        }
+    </script>
+
+</body>
+
+</html>

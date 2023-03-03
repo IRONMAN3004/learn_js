@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        function logger(){
+           var a = true;
+           if(a){
+            var name =" nam"
+           }
+           
+        }
+         logger();
+         console.log(name)
+        // console.log(fullName) sai do do nó thuộc phạm vi của hàm logger và chỉ có thể dùng đc trong hàm đó thôi
+        //do var thuộc phạm vi local scope chứ về code block thì nó nhảy ra phạm phi gần nhấtr ở bên ngoài nó sẽ ko thuộc phạm vi code block đâu
+
+        /* 
+          khi khai báo biến vs var như trên mình khai báo trong code block
+          nhưng nó sẽ ko thuộc code block đó mà nhảy ra phạm vi gần nhất ở 
+          bên ngoài cụ thể ở đây khi gọi hàm logger thì nó sẽ tạ ra 1 phạm 
+          vi mới đến lúc này biến var kia sẽ thuộc phạm vi đó
+           
+        */
+
+    </script>
+</body>
+</html>

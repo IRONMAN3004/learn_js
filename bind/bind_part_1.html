@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        this.firstName = 'Phạm'
+        this.lastName = 'Lam'
+
+        const teacher = {
+            firstName: 'Phạm',
+            lastName: 'Nam',
+            // getFullName : function(){
+
+            // }
+
+            getFullName() {
+                return `Họ: ${this.firstName} - Tên: ${this.lastName}`;
+            }
+        }
+
+        console.log(teacher.getFullName());
+        const getTeacherName = teacher.getFullName;
+        // teacher.getFullName;  bản chất function là 1 object thì nó là tham chiếu nên teacher.getFullName; bản chất nó sao chép vùng nhớ gán cho biết bên   
+        // teacher.getFullName; chỉ truy cập vào hàm getFullname và gán vào biến bên
+        //teacher.getFullName() --đối tượng gọi đến method this nó trỏ đến đối tượng trước dấu .  cón  teacher.getFullName; this trỏ đến đối tượng window nên kết quả ra khác
+        console.log(getTeacherName());
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="MyName" class="vnfree">
+        <p>Number 0</p>
+        <p>Number 1</p>
+        <p>Number 2</p>
+        <p>Number 3 Have a nice day !</p>
+    </div>
+
+    <input type="button" onclick="EditText()" value="Get Text" />
+    <script language="javascript">
+        function EditText() {
+            // lấy thẻ có id="MyName"
+            //    var IDName = document.getElementById("MyName");
+            // Lấy các thẻ p trong thẻ có id="MyName"
+            //   var TagP = IDName.getElementsByTagName("p");
+            // In ra thẻ p thứ 3
+            //    alert(TagP[3].innerText);
+
+            var a = document.getElementsByTagName('p');
+            console.log(a[2]);
+        }
+    </script>
+</body>
+
+</html>

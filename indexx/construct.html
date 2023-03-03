@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function User(firstName, lastName, age) {
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.age = age;
+            this.getFullName = function() {
+                return `${this.firstName} ${this.lastName}`;
+            }
+            User.prototype.className = 'F8';
+            User.prototype.getClassName = function() {
+                return this.className;
+            }
+        }
+
+
+        let user1 = new User('Nam', 'Truong', 18);
+        let user2 = new User('Lam', 'Truong', 21);
+
+        user1.comment = 'this comment 1';
+        user2.comment = 'this comment 2';
+
+        console.log(user1);
+        console.log(user2);
+    </script>
+</body>
+
+</html>

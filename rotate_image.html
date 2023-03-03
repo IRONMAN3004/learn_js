@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @keyframes rotation {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        
+        .image {
+            width: 300px;
+            height: 300px;
+            border-radius: 100%;
+            animation: rotation 10s infinite linear;
+        }
+    </style>
+</head>
+
+<body>
+    <img class="image" src="https://imgs.search.brave.com/bVXliMvGYnQR4WWkPLS8MlAWMheOBO3MsjOgXcEEVnA/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly93d3cu/MjRoZm9vdG5ld3Mu/Y29tL3dwLWNvbnRl/bnQvdXBsb2Fkcy8y/MDIwLzA5L0NSMTAw/LUNyaXN0aWFuby1S/b25hbGRvLXNjb3Jl/cy1oaXMtMTAwdGgt/Z29hbC13aXRoLVBv/cnR1Z2FsLmpwZw">
+    <script>
+        var el = document.querySelector('.image');
+        // console.log(el);
+        let angle = 0;
+        // el.addEventListener("mouseover", function() {
+        //     angle += 100;
+        //     this.style.transform = `rotate(${angle}deg)`;
+        // });
+
+        setInterval(function() {
+            angle += 10;
+            // el.style.transform = `rotate(${angle}deg)`; do mình đang dùng style (dom) nên cần gán giá trị là chuỗi với do mặc định có dấu ""
+            // let angle = 30;
+            let string = "rotate(" + angle + "deg)";
+            // console.log(string); // "rotate(30deg)" --->Mục dích nó ra cái này
+
+            // el.style.transform = rotate(angle + "deg");
+        }, 300);
+        console.log(el);
+    </script>
+</body>
+
+</html>

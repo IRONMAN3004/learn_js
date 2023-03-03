@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" placeholder="Enter car name..." id="input">
+    <button id="submit">All</button>
+    <ul id="root">
+
+    </ul>
+
+    <script>
+        const $ = document.querySelector.bind(document);
+        const $$ = document.querySelectorAll.bind(document);
+
+        const app = (() => {
+            const cars = ['BMW'];
+            const root = $('#root');
+            const submit = $('#submit');
+            const input = $('input');
+
+            return {
+                add(car) {
+                    if (input.value !== '') {
+                        cars.push(car);
+
+                    }
+
+                },
+                delete(index) {
+                    cars.splice(index, 1);
+                },
+                render() {
+                    const html = cars.map((car, index) =>
+                        `<li>
+                            ${car}
+                            <span class ="delete" data-index = "${index}">&times</span>
+                            </li>`
+
+                    ).join('')
+                    root.innerHTML = html;
+                },
+                handleDelete(e) {
+                    // console.log(e.target.closest('.delete'))
+                    const deleteBtn = e.target.closest('.delete');
+
+                    if (deleteBtn) {
+                        const index = deleteBtn.dataset.index
+                        this.delete(index);
+                        this.render()
+                    }
+
+                },
+                init() {
+                    //handle Dom events
+                    const _this = this;
+                    submit.onclick = function() {
+                        const car = input.value;
+                        _this.add(car);
+                        _this.render();
+
+                        input.value = null;
+                        input.focus();
+                    }
+
+                    root.onclick = this.handleDelete.bind(_this);
+
+                    this.render();
+                }
+            }
+        })();
+
+        app.init();
+        //delegate pattern
+    </script>
+</body>
+
+</html>

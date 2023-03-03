@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: rgb(201, 169, 169);
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="red">Đổi màu thẻ div này thành màu #f00</div>
+    <p style="color: red; font-style: italic;font-size: 20px;">F8 - Học lập trình để đi làm</p>
+    <script>
+        var elem = document.querySelector('div');
+        var elemt = document.querySelector('p');
+        elemt.style.color = 'blue';
+        //elemt.style = 'color:blue';
+
+
+        var sty = window.getComputedStyle(elemt);
+        console.log(sty);
+        console.log(sty.getPropertyValue('color'));
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function getString([first, ...seconds], ...values) {
+            console.log(first);
+            console.log(...seconds);
+            console.log(...values);
+
+            return values.reduce((arr, value) => {
+                    return arr + `<span>${value}</span> ` + seconds.shift()
+                }, first)
+                // lần lặp đầu tiên nó sẽ trả lại Javascript, + với giá trị nằm trong second  },first ) / ở đây first được gán thành arr 
+        }
+        // đồng thời nó sẽ xóa giá trị đầu vừa nhập ở seconds sau đó bắt đầu lần lặp 2. vì first là giá trị init nên nó sẽ ko lặp lại
+        // chỉ có course và seconds được lặp lại.Do value được reduce nên khi nó lặp hết giá trị thì nó sẽ dừng đông thời seconds.shif() cũng xóa đi thành phần vừa lặp
+        var brand = 'F8';
+        var course = 'Javascript'
+
+        var html = getString `Hoc lap trinh ${course} tai ${brand} !??????`
+
+        console.log(html)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/Aset_css/Tabs_ui_main.css">
+</head>
+
+<body>
+
+    <div>
+        <!-- Tab items -->
+        <div class="tabs">
+            <div class="tab-item active">
+                <i class="tab-icon fas fa-code"></i> React
+            </div>
+            <div class="tab-item">
+                <i class="tab-icon fas fa-cog"></i> Angular
+            </div>
+            <div class="tab-item">
+                <i class="tab-icon fas fa-plus-circle"></i> Ember
+            </div>
+            <div class="tab-item">
+                <i class="tab-icon fas fa-pen-nib"></i> Vue.JS
+            </div>
+            <div class="line"></div>
+        </div>
+
+        <!-- Tab content -->
+        <div class="tab-content">
+            <div class="tab-pane active">
+                <h2>React</h2>
+                <p>React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes.</p>
+                <img class="tab-pane__img" src="/Aset_css/image/image1.webp" alt="">
+                <div class="pane__img1"></div>
+            </div>
+            <div class="tab-pane">
+                <h2>Angular</h2>
+                <p>Angular is an application design framework and development platform for creating efficient and sophisticated single-page apps.</p>
+                <img class="tab-pane__img" src="/Aset_css/image/imag2.jpg" alt=""> </div>
+            <div class="tab-pane">
+                <h2>Ember</h2>
+                <p>Ember.js is a productive, battle-tested JavaScript framework for building modern web applications. It includes everything you need to build rich UIs that work on any device.</p>
+                <img class="tab-pane__img" src="/Aset_css/image/image3.jpg" alt=""> </div>
+            <div class="tab-pane">
+                <h2>Vue.js</h2>
+                <p>Vue (pronounced /vjuː/, like view) is a progressive framework for building user interfaces. Unlike other monolithic frameworks, Vue is designed from the ground up to be incrementally adoptable. </p>
+                <img class="tab-pane__img" src="/Aset_css/image/images4.jpg" alt=""> </div>
+        </div>
+    </div>
+
+
+    <script>
+        /*
+                                                                                                                                        Đầu tiên thi cứ lập document để lấy element ra và gán vào các biến. 
+                                                                                                                                        Sau đó ta dùng forEach lặp qua từng tab ở trong tabs để lấy dữ liệu rồi dùng onclick,
+                                                                                                                                        khi click vào 1 tab nào đó thì tab đó sẽ nhận được class active đồng nghĩa với việc là 
+                                                                                                                                        hiển thị lên màn hình. Nếu đã có active thì tự động loại bỏ active đó.
+                                                                                                                                        */
+        const $ = document.querySelector.bind(document);
+        const $$ = document.querySelectorAll.bind(document);
+
+        const tabItems = $$('.tab-item');
+        const tabItemsActiveLine = $('.tab-item.active');
+        const tabPanes = $$('.tab-pane');
+
+        const line = $('.line');
+
+        var i = 0;
+
+        function moveLineItems(itemsActive) {
+            line.style.left = `${itemsActive.offsetLeft}px`; //tabItems[i].offsetLeft + "px";
+            line.style.width = `${itemsActive.offsetWidth}px`;
+            // Tối ưu việc lặp lại đoạn code này 2 lần thì ta có thể
+            // tái sử dụng chỗ khác gọn hơn
+        }
+        // moveLineItems(tabItemsActiveLine); đóng lại hàm này sẽ thấy sự khác biệt hàm này nó sẽ làm cho cái line hiển thị
+
+        [...tabItems].forEach(function(item, index) { //[...tabItems] nó dùng destrusturing và rest mà dùng rest nó sẽ tạo ra 1 mảng mới 
+
+            const pane = tabItems[index];
+            item.addEventListener('click', function() {
+                // Tối ưu kiểm tra điểu kiện class element có đang chứa active
+                // hay không, có thì sẽ dừng lại, tránh việc bị spam click 
+                if (this.classList.contains('active')) {
+                    moveLineItems(tabItemsActiveLine);
+                    return
+                }
+                console.log('eeee')
+                const tabItemsActive = $('.tab-item.active');
+                const tabPanesActive = $('.tab-pane.active');
+
+                tabItemsActive.classList.remove('active');
+                tabPanesActive.classList.remove('active');
+
+                this.classList.add('active');
+
+                [...tabPanes][index].classList.add('active');
+                console.log([...tabPanes]);
+                i = index;
+                moveLineItems(this) // tái sử dụng
+            })
+        })
+
+        //ý tưởng của mình là auto run, khi click vào 1 tab bất kì thì phần auto run sẽ run tiếp luôn từ tab đó ^^
+        setInterval(() => {
+            // .tab-item.active lấy ra item đang active hiện tại khi load trang web thì sẽ có 1 item có .tab-item.active
+            $(".tab-item.active").classList.remove("active");
+            $(".tab-pane.active").classList.remove("active");
+
+            tabItems[i].classList.add("active");
+            tabPanes[i].classList.add("active");
+
+            line.style.left = tabItems[i].offsetLeft + "px";
+            line.style.width = tabItems[i].offsetWidth + "px";
+
+            i++;
+            if (i == tabItems.length) {
+                i = 0;
+            }
+        }, 1500);
+    </script>
+
+    <!-- <script>
+        const $ = document.querySelector.bind(document);
+        const $$ = document.querySelectorAll.bind(document);
+        const tabs = $$(".tab-item");
+        const panes = $$(".tab-pane");
+
+        const tabActive = $(".tab-item.active");
+        const line = $(".tabs .line");
+
+        // SonDN fixed - Active size wrong size on first load.
+        // Original post: https://www.facebook.com/groups/649972919142215/?multi_permalinks=1175881616551340
+
+        function moveLineItems(itemsActive) {
+            line.style.left = `${itemsActive.offsetLeft}px`;
+            line.style.width = `${itemsActive.offsetWidth}px`;
+            // Tối ưu việc lặp lại đoạn code này 2 lần thì ta có thể
+            // tái sử dụng chỗ khác gọn hơn
+        }
+        moveLineItems(tabActive);
+
+        tabs.forEach(
+            function(tab, index) {
+                const pane = panes[index];
+                tab.onclick = function() {
+                    $('.tab-item.active').classList.remove('active');
+                    console.log("www");
+                    $('.tab-pane.active').classList.remove('active');
+
+                    line.style.left = this.offsetLeft + "px";
+                    line.style.width = this.offsetWidth + "px";
+                    // console.log(tab);
+                    // console.log(this);
+                    this.classList.add('active');
+                    pane.classList.add('active');
+
+                }
+            }
+        );
+
+        // [...tabItems].forEach(function(item, index) {
+        //     item.addEventListener('click', function() {
+        //         // Tối ưu kiểm tra điểu kiện class element có đang chứa active
+        //         // hay không, có thì sẽ dừng lại, tránh việc bị spam click 
+        //         if (this.classList.contains('active')) {
+        //             return
+        //         }
+        //         const tabItemsActive = $('.tab-item.active');
+        //         const tabPanesActive = $('.tab-pane.active');
+
+        //         tabItemsActive.classList.remove('active');
+        //         tabPanesActive.classList.remove('active');
+
+        //         this.classList.add('active');
+
+        //         [...tabPanes][index].classList.add('active');
+
+        //         moveLineItems(this) // tái sử dụng
+        //     })
+        // })
+
+        /*Nam Phạm văn
+        return để dừng tất cả đoạn code bên dưới nó lại, 
+        nếu có chứa active thì sẽ dừng chức năng remove và add bên dưới lại, 
+        thì sẽ không spam click dc nữa, nếu vẫn k hiểu thì nhắn fb mình giải thích lại*/
+    </script> -->
+</body>
+
+</html>

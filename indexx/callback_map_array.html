@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //ARRAY EXAMPLE 1 
+        var course = [
+                'Javascript',
+                'PHP',
+                'HTML',
+                'REACT JS',
+                'ANGULAR JS',
+                'PHP',
+            ]
+            //ARRAY EXAMPLE 2
+        var array = [1, 2, 3, 4, 5, 6];
+        //ARRAY EXAMPLE 3
+        var coursess = [{
+            id: 1,
+            name: 'Javascript',
+            price: 50
+        }, {
+            id: 2,
+            name: 'PHP',
+            price: 60
+        }, {
+            id: 3,
+            name: 'Ruby',
+            price: 70
+        }]
+        Array.prototype.map2 = function(callback) {
+            // Map trả về mảng >> tạo mảng để lưu trữ
+            var newArray = []
+            for (let i = 0; i < this.length; i++) {
+                // Lưu từng giá trị vào result
+                // Nhập vào giá trị gì thì lưu (trả) về giá trị đó
+                let result = callback(this[i], i, this) // nó sẽ call lại hàm ở dòng 52 
+                    // và sẽ xử lý và trả về 1 cái gì đố tiếp nó sẽ lưu vào result
+                console.log(result);
+                // rồi thêm vào
+                newArray.push(result)
+            }
+            return newArray
+        }
+
+        var check = coursess.map2(function(courses, index) {
+            return courses;
+        })
+
+        console.log(check);
+    </script>
+</body>
+
+</html>

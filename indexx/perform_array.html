@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Mảng 
+
+        courses = [{
+            id: 0,
+            name: "html",
+            coin: 0,
+        }, {
+            id: 1,
+            name: "php",
+            coin: 20,
+        }, {
+            id: 2,
+            name: "java",
+            coin: 10,
+        }, {
+            id: 1,
+            name: "html",
+            coin: 0,
+        }, {
+            id: 1,
+            name: "css",
+            coin: 0,
+        }, ]
+
+        var isFree = courses.some(function(element, index) {
+            //   console.log('index =>' + index);
+            console.log('coin =>' + element.coin);
+
+            return element.coin === 10;
+        })
+
+        console.log(isFree);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const topics = [{
+            topic: "ReactJS",
+            posts: [{
+                postID: "id1",
+                title: "title1"
+            }, {
+                postID: "id2",
+                title: "title2"
+            }, ],
+        }, {
+            topic: "Vue.js",
+            posts: [{
+                postID: "id3",
+                title: "title3"
+            }, {
+                postID: "id4",
+                title: "title4"
+            }, ],
+        }, ];
+
+        let allPosts = topics.reduce((post, element) => {
+            console.log(...post);
+            return [...post, ...element.posts];
+        }, [])
+
+        // console.log(allPosts);
+        // khai báo mảng rỗng để lưu kết quả
+
+        // var allPosts = [];
+
+        // // duyệt mảng các topics
+        // for (let t = 0; t < topics.length; t++) {
+        //     // lấy ra các posts với từng topic
+        //     var posts = topics[t].posts;
+
+        //     // sử dụng vòng lặp for để duyệt mảng posts
+        //     for (let p = 0; p < posts.length; p++) {
+        //         // lấy ra từng post
+        //         var post = posts[p];
+
+        //         // push vào mảng kết quả
+        //         allPosts.push(post);
+        //         //  console.log(post);
+
+        //     }
+        //     // console.log(posts);
+        // }
+        console.log(allPosts);
+    </script>
+</body>
+
+</html>

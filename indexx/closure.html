@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- // Bước 1: Tạo hàm closure
+    function Student()
+    {
+        var name = '';
+        var age = '';
+
+        return {
+            set : function(in_name, in_age){
+                name = in_name;
+                age = in_age;
+            },
+            getName : function(){
+                return name;
+            },
+            getAge : function(){
+                return age;
+            }
+        };
+    }
+
+    // Bước 2: khởi tạo hàm closure
+    var studentObj = Student();
+
+    // Bước 3: Chạy hàm closure
+    studentObj.set('Nguyễn Văn Cường', '27');
+    alert(studentObj.getName());
+    alert(studentObj.getAge()); -->
+
+    <!-- Ví dụ dưới đây mình tạo một hàm sayHi():
+                function sayHi(name){
+                let say = function(){
+                alert("Xin chào, tôi là " + name);
+                };
+                return say;
+                }
+
+                Trong ví dụ này thì hàm say() chính là một closure function. Bên trong nó có thể sử dụng được biến của hàm cha name.
+
+                Bạn cũng có thể return về luôn thay vì đặt tên cho hàm closure đó.
+
+                function sayHi(name){
+                return function(){
+                alert("Xin chào, tôi là " + name);
+                };
+                }
+
+                Bây giờ mình sẽ gọi đến hàm sayHi, và gán nó vào biến tên là cuong.
+                Sau đó mình log biến cuong này xem nó là gì nhé.
+
+                var cuong = sayHi("Cường");
+                console.log(cuong);
+
+                Kết quả trả vè nó là một function như sau:
+                ƒ (){
+                alert(message);
+                }
+
+                do khá đơn giản, bởi vì trong hàm sayHi mình return về một function, vì vậy biến cuong chính là function mà mình đã return đó. 
+                Để in ra thông báo thì chúng ta phải gọi kích hoạt function này.
+
+                var cuong = sayHi("Cường");
+                cuong(); // Kết quả: Xin chào, tôi là cường -->
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //         === Mình xin tóm tắt lại nội dung ===
+        // Enhanced Object Literals giúp chúng ta: 
+        // 	- định nghĩa key dưới dạng biến cho object.
+        // 	- định nghĩa value dưới dạng biến cho object.
+        // 	- định nghĩa key-value cho object thông qua biến.
+        // 	- định nghĩa Method cho object không cần key.
+
+        var name = 'Javascript';
+        var price = 1000;
+
+        //cách 1 Tạo Object ( theo tiêu chuẩn của object – các value là biến) 
+        var course = {
+            name: name,
+            price: price,
+            getName: function() {
+                return name
+            }
+        };
+
+        //cách 2 Tạo Object ( bỏ hết key của object )
+        var course = {
+            name,
+            price,
+            getName() {
+                return this.name
+            }
+        }; //return ra value name
+        var course = {
+            name,
+            price,
+            getName() {
+                return this.name
+            }
+        }; //return ra key name
+
+        //cách 3 Tạo Object ( Các key là biến  [biến = key] : 'value muốn nhập vô' )
+        var fieldName = '  Name ';
+        var fieldPrice = 'Price';
+        var course = {
+            [fieldName]: 'PHP',
+            [fieldPrice]: '1000',
+            getName() {
+                return fieldName
+            }
+        };
+        // return ra key: 'Name'
+        var course = {
+            [fieldName]: 'PHP',
+            [fieldPrice]: '1000',
+            getName() {
+                return this[fieldName]
+            }
+        };
+        // return ra value của key: 'PHP'
+    </script>
+</body>
+
+</html>
